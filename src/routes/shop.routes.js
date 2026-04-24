@@ -31,6 +31,13 @@ router.get(
 );
 
 router.get(
+  "/my-shop",
+  authMiddleware,
+  roleMiddleware(["manager"]),
+  shopController.getManagerShop
+);
+
+router.get(
   "/:id",
   authMiddleware,
   shopController.getShopById
